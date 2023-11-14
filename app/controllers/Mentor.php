@@ -20,6 +20,11 @@ class Mentor extends Controller{
         $data['judul'] = "Dashboard";
         $data['login'] = $this->data['login'];// data mentor
 
+        if ($this->data['kelas']) {
+            header('Location: ' . BASEURL .'/mentor/data_user');
+        }else{
+            header('Location: ' . BASEURL .'/mentor/index');
+        }
         // var_dump($_SESSION['id_profile_mentor']);die;
         if (isset($_POST['keyword'])) {
             $data['kelas'] = $this->model('Kelas_model')->getKelasByKode();
@@ -40,6 +45,12 @@ class Mentor extends Controller{
 
         // mengambil data kelas yang sama dengan id_mentor
         $data['kelas'] = $this->data['kelas'];
+
+        if ($this->data['kelas']) {
+            header('Location: ' . BASEURL .'/mentor/data_user');
+        }else{
+            header('Location: ' . BASEURL .'/mentor/index');
+        }
         
 
         //mengambil data user pada kelas yang sama dengan mentor
@@ -84,6 +95,12 @@ class Mentor extends Controller{
 
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
+
+        if ($this->data['kelas']) {
+            header('Location: ' . BASEURL .'/mentor/data_user');
+        }else{
+            header('Location: ' . BASEURL .'/mentor/index');
+        }
         // var_dump($data['kelas']);die;
 
         // mengambil data materi yang sama dengan id_mentor
@@ -114,6 +131,12 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
+        if ($this->data['kelas']) {
+            header('Location: ' . BASEURL .'/mentor/data_user');
+        }else{
+            header('Location: ' . BASEURL .'/mentor/index');
+        }
+
         // mengambil data tools yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
@@ -141,6 +164,12 @@ class Mentor extends Controller{
 
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
+
+        if ($this->data['kelas']) {
+            header('Location: ' . BASEURL .'/mentor/data_user');
+        }else{
+            header('Location: ' . BASEURL .'/mentor/index');
+        }
 
         // mengambil data tools yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
