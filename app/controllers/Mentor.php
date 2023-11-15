@@ -13,33 +13,54 @@ class Mentor extends Controller{
         // var_dump($this->data['kelas']);die;        
     }
 
-    private function checkRedirection() {
-        if ($this->data['kelas']) {
-            header('Location: ' . BASEURL . '/mentor/data_user');
-            exit;
-        } else {
-            header('Location: ' . BASEURL . '/mentor/index');
-            exit;
-        }
-    }
     
     public function index()
     {
-        //mempersiapkan data yang digunakan
-        $data['judul'] = "Dashboard";
-        $data['login'] = $this->data['login'];// data mentor
+        if (!$this->data['kelas']) {
+           //mempersiapkan data yang digunakan
+            $data['judul'] = "Dashboard";
+            $data['login'] = $this->data['login'];// data mentor
+            
+            $data['kelas']= NULL;
+            
 
-        $this->checkRedirection();
+            // var_dump($_SESSION['id_profile_mentor']);die;
+            if (isset($_POST['keyword'])) {
+                $data['kelas'] = $this->model('Kelas_model')->getKelasByKode();
+                // var_dump($data['kelas']);die;
+            }
 
-        // var_dump($_SESSION['id_profile_mentor']);die;
-        if (isset($_POST['keyword'])) {
-            $data['kelas'] = $this->model('Kelas_model')->getKelasByKode();
+            //menampilkan view
+            // $this->view('mentor/componens/header',$data);
+            $this->view('mentor/index',$data);
+            // $this->view('mentor/componens/footer',$data);
+        }else {
+            //mempersiapkan data yang digunakan
+            $data['judul'] = "Data User";
+            $data['login'] = $this->data['login'];// data mentor
+
+            // mengambil data kelas yang sama dengan id_mentor
+            $data['kelas'] = $this->data['kelas'];
+
+            
+            
+
+            //mengambil data user pada kelas yang sama dengan mentor
+            if (isset($_POST['keyword'])) {
+                $keyword = $_POST['keyword'];
+                $data['user'] = $this->model('User_model')->cariUserByIdKelas($data['kelas']['id_kelas'], $keyword);
+            } else {
+                $data['user'] = $this->model('User_model')->getUserByIdKelas($data['kelas']['id_kelas']);
+            }
+
+            // var_dump($data['user']);die;
+
+            //menampilkan view
+            $this->view('mentor/componens/header',$data);
+            $this->view('mentor/data_user/index',$data);
+            $this->view('mentor/componens/footer',$data);
         }
-
-        //menampilkan view
-        // $this->view('mentor/componens/header',$data);
-        $this->view('mentor/index',$data);
-        // $this->view('mentor/componens/footer',$data);
+        
     }
 
     //data user
@@ -52,7 +73,7 @@ class Mentor extends Controller{
         // mengambil data kelas yang sama dengan id_mentor
         $data['kelas'] = $this->data['kelas'];
 
-        $this->checkRedirection();
+        
         
 
         //mengambil data user pada kelas yang sama dengan mentor
@@ -81,18 +102,15 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
-        $this->checkRedirection();
+        
         // var_dump($data['kelas']);die;
 
         // mengambil data materi yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
             $data['materi'] = $this->model('Materi_model')->cariMateriByIdMentor($_SESSION['id_profile_mentor'],$keyword);
-        } elseif(isset($data['kelas'])) {
+        } else{
             $data['materi'] = $this->model('Materi_model')->getMateriByIdMentor($_SESSION['id_profile_mentor']);
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-            exit;
         }
 
         // var_dump($data['materi']);die;
@@ -112,17 +130,14 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
-        $this->checkRedirection();
+        
 
         // mengambil data tools yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
             $data['tools'] = $this->model('Tools_model')->cariToolsByIdMentor($_SESSION['id_profile_mentor'],$keyword);
-        } elseif(isset($data['kelas'])) {
+        } else{
             $data['tools'] = $this->model('Tools_model')->getToolsByIdMentor($_SESSION['id_profile_mentor']);
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-            exit;
         }
 
         // var_dump($data);die;
@@ -142,17 +157,14 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
-        $this->checkRedirection();
+        
 
         // mengambil data tools yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
             $keyword = $_POST['keyword'];
             $data['penugasan'] = $this->model('Penugasan_model')->cariPenugasanByIdMentor($_SESSION['id_profile_mentor'],$data['kelas']['id_kelas'],$keyword);
-        } elseif(isset($data['kelas'])) {
+        } else{
             $data['penugasan'] = $this->model('Penugasan_model')->getPenugasanByIdMentor($_SESSION['id_profile_mentor'],$data['kelas']['id_kelas']);
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-            exit;
         }
 
         // var_dump($data['penugasan']);die;

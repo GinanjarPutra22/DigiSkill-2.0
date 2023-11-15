@@ -65,11 +65,12 @@ class Kelas_model{
     //digunakan untuk mentor mencari data
     public function getKelasByKode()
     {
+        // var_dump($_POST);die;
         $keyword = $_POST['keyword'];
 
         $query = 'SELECT * FROM '. $this->table . ' 
                     INNER JOIN kategori ON kategori.id_kategori = kelas.id_kategori 
-                    WHERE kode_kelas LIKE :keyword AND id_profile_mentor = NULL';
+                    WHERE kode_kelas LIKE :keyword AND kelas.id_mentor IS NULL';
 
         $this->db->query($query);
         $this->db->bind('keyword',$keyword);

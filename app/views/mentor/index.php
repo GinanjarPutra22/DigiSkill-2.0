@@ -98,11 +98,11 @@
                 </div>
 
                 <div class="row mt-5 container  justify-content-center">
-                    <?php if (isset($data['kelas'])) {?>
+                    <?php if ($data['kelas']) {?>
                         <div class="col-lg-4 col-md-6 mb-4 rounded ">
                             <div class="card p-3 ">
                                 <div class="img-box">
-                                    <img src="<?= BASEURL?>/public/img/backgrounds/<?= $data['kelas']['thumbnail']?>" alt=""
+                                    <img src="<?= BASEURL?>/public/img/assets/kelas/<?= $data['kelas']['thumbnail']?>" alt=""
                                         class="img-fluid figure-img rounded h-25 w" />
                                 </div>
                                 <div class="d-flex justify-content-between mt-2">
@@ -121,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                    <?php }else{?>
+                    <?php }elseif($data['kelas'] === NULL){?>
                         <h1 class="text-center">Data Kosong</h1>
                     <?php }?>
                 </div>
