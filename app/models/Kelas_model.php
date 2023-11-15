@@ -69,7 +69,7 @@ class Kelas_model{
 
         $query = 'SELECT * FROM '. $this->table . ' 
                     INNER JOIN kategori ON kategori.id_kategori = kelas.id_kategori 
-                    WHERE kode_kelas LIKE :keyword';
+                    WHERE kode_kelas LIKE :keyword AND id_profile_mentor = NULL';
 
         $this->db->query($query);
         $this->db->bind('keyword',$keyword);
@@ -92,7 +92,7 @@ class Kelas_model{
 
     // menambah data
     public function tambahDataKelas($data){
-        // var_dump($data);die;
+        var_dump($_FILES);die;
         $query = "INSERT INTO kelas 
                     VALUES 
                     ('', :id_kategori, NULL, :nama_kelas, :detail, :thumbnail, :detail_program, :deskripsi, NULL, :kode_kelas)";
@@ -218,7 +218,7 @@ class Kelas_model{
         $namafilebaru .= $ekstensigambar;
     
         // mengirim kedalam directory 
-        move_uploaded_file($tmpname, 'public/img/asset/kelas/' . $namafilebaru);
+        move_uploaded_file($tmpname, 'public/img/assets/kelas/' . $namafilebaru);
     
         return $namafilebaru;
     }

@@ -94,7 +94,7 @@ class Mentor_model{
 
     // ubah data mentor
     public function ubahDataMentor($data){
-        var_dump($data);die;
+        // var_dump($data);die;
         try {
             $this->db->beginTransaction(); // Mulai transaksi
             // var_dump($data);die;

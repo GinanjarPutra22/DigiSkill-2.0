@@ -10,8 +10,17 @@ class Mentor extends Controller{
             $this->data['login'] = $this->model('Auth_model')->getLoginByIdMentor($_SESSION['id_profile_mentor']);
             $this->data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
         }
-        // var_dump($this->data['kelas']);die;
-        
+        // var_dump($this->data['kelas']);die;        
+    }
+
+    private function checkRedirection() {
+        if ($this->data['kelas']) {
+            header('Location: ' . BASEURL . '/mentor/data_user');
+            exit;
+        } else {
+            header('Location: ' . BASEURL . '/mentor/index');
+            exit;
+        }
     }
     
     public function index()
@@ -20,11 +29,8 @@ class Mentor extends Controller{
         $data['judul'] = "Dashboard";
         $data['login'] = $this->data['login'];// data mentor
 
-        if ($this->data['kelas']) {
-            header('Location: ' . BASEURL .'/mentor/data_user');
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-        }
+        $this->checkRedirection();
+
         // var_dump($_SESSION['id_profile_mentor']);die;
         if (isset($_POST['keyword'])) {
             $data['kelas'] = $this->model('Kelas_model')->getKelasByKode();
@@ -46,11 +52,7 @@ class Mentor extends Controller{
         // mengambil data kelas yang sama dengan id_mentor
         $data['kelas'] = $this->data['kelas'];
 
-        if ($this->data['kelas']) {
-            header('Location: ' . BASEURL .'/mentor/data_user');
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-        }
+        $this->checkRedirection();
         
 
         //mengambil data user pada kelas yang sama dengan mentor
@@ -69,23 +71,6 @@ class Mentor extends Controller{
         $this->view('mentor/componens/footer',$data);
     }
 
-    // public function profile()
-    // {
-    //     //mempersiapkan data yang digunakan
-    //     $data['judul'] = "Data User";
-    //     $data['login'] = $this->data['login'];// data mentor
-
-    //     // mengambil data kelas yang sama dengan id_mentor
-    //     $data['kelas'] = $this->data['kelas'];
-        
-    //     // var_dump($data);die;
-
-    //     //menampilkan view
-    //     $this->view('mentor/componens/header',$data);
-    //     $this->view('mentor/profile/index',$data);
-    //     $this->view('mentor/componens/footer',$data);
-    // }
-
     //data kelas
     public function materi()
     {
@@ -96,11 +81,7 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
-        if ($this->data['kelas']) {
-            header('Location: ' . BASEURL .'/mentor/data_user');
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-        }
+        $this->checkRedirection();
         // var_dump($data['kelas']);die;
 
         // mengambil data materi yang sama dengan id_mentor
@@ -131,11 +112,7 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
-        if ($this->data['kelas']) {
-            header('Location: ' . BASEURL .'/mentor/data_user');
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-        }
+        $this->checkRedirection();
 
         // mengambil data tools yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
@@ -165,11 +142,7 @@ class Mentor extends Controller{
         //mengambil judul kelas
         $data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
 
-        if ($this->data['kelas']) {
-            header('Location: ' . BASEURL .'/mentor/data_user');
-        }else{
-            header('Location: ' . BASEURL .'/mentor/index');
-        }
+        $this->checkRedirection();
 
         // mengambil data tools yang sama dengan id_mentor
         if (isset($_POST['keyword'])) {
