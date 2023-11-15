@@ -62,13 +62,13 @@ class Pendaftaran_model{
     //getJumlahTerbanyak
     public function getJumlahTerbanyak()
     {
-        $query = "SELECT *, COUNT(data_user.id_kelas) AS total_data_user,
-                    (SELECT COUNT(materi.id_kelas) FROM materi WHERE materi.id_kelas = kelas.id_kelas) AS total_materi
-                        FROM kelas
-                        LEFT JOIN data_user ON kelas.id_kelas = data_user.id_kelas
-                        LEFT JOIN kategori ON kelas.id_kategori = kategori.id_kategori
-                        GROUP BY kelas.id_kelas, kelas.nama_kelas ORDER BY total_data_user DESC
-                         LIMIT 3";
+        $query = "SELECT kelas.thumbnail,kategori.nama_kategori, kelas.id_kelas, kelas.nama_kelas, COUNT(data_user.id_kelas) AS total_data_user,
+                        (SELECT COUNT(materi.id_kelas) FROM materi WHERE materi.id_kelas = kelas.id_kelas) AS total_materi
+                            FROM kelas
+                            LEFT JOIN data_user ON kelas.id_kelas = data_user.id_kelas
+                            LEFT JOIN kategori ON kelas.id_kategori = kategori.id_kategori
+                            GROUP BY kelas.id_kelas, kelas.nama_kelas ORDER BY total_data_user DESC
+                            LIMIT 3";
         $this->db->query($query);
         return $this->db->resultSet();
     }
