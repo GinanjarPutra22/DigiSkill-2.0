@@ -70,7 +70,7 @@ class Kategori_model{
             $data['hero_gambar'] = $fotolama;
         } else {
             echo "Error code: " . $_FILES['hero_gambar']['error'];
-            $tempat = "public/img/asset/kategori/" . $fotolama;
+            $tempat = "public/img/assets/kategori/" . $fotolama;
             unlink($tempat);
             $data['hero_gambar'] = $this->tambahGambar();
         }
@@ -149,7 +149,7 @@ class Kategori_model{
         $namafilebaru .= $ekstensigambar;
     
         // mengirim kedalam directory 
-        move_uploaded_file($tmpname, 'public/img/asset/kategori/' . $namafilebaru);
+        move_uploaded_file($tmpname, 'public/img/assets/kategori/' . $namafilebaru);
     
         return $namafilebaru;
     }
