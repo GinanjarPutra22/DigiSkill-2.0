@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="<?= BASEURL;?>/public/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+    data-assets-path="<?= BASEURL; ?>/public/" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
@@ -13,7 +13,7 @@
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?= BASEURL;?>/public/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= BASEURL; ?>/public/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,30 +23,31 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/css/demo.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/css/theme-default.css"
+        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="<?= BASEURL;?>/public/vendor/js/helpers.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="<?= BASEURL;?>/public/js/config.js"></script>
+    <script src="<?= BASEURL; ?>/public/js/config.js"></script>
 </head>
 
 <body class="bg-white">
     <!--  NAVBAR BEFORE LOGIN-->
-    <nav class="navbar navbar-expand-lg navbar-light card p-3 fixed-top">
-        <div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light card py-3  fixed-top ">
+        <div class="container ">
             <div class="app-brand demo">
                 <a href="#" class="app-brand-link">
                     <span class="app-brand-logo demo">
@@ -109,34 +110,40 @@
             <div class=" collapse navbar-collapse" id="navbarNavDropdown">
 
                 <ul class="navbar-nav ms-auto gap-3">
-                    <li class="nav-item mt-2">
-                        <a class="nav-link fw-semibold fs-6 <?= ($data['judul'] === 'Dashboard') ? 'text-primary active' : '' ?>" aria-current="page"
-                            href="<?= BASEURL;?>/">Beranda</a>
+                    <li class="nav-item ">
+                        <a class="nav-link fw-semibold fs-6 <?= ($data['judul'] === 'Dashboard') ? 'text-primary active' : '' ?>"
+                            aria-current="page" href="<?= BASEURL; ?>/">Beranda</a>
                     </li>
 
-                    <li class="nav-item mt-2 dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle fs-6" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Kategori Kelas
                         </a>
                         <ul class="dropdown-menu">
-                          <?php foreach ($data['kategori'] as $kategori) :?>
-                            <li>
-                              <a class="dropdown-item" href="<?= BASEURL;?>/kategori/detail/<?= $kategori['id_kategori']?>"><?= $kategori['nama_kategori']?></a>
-                            </li>
-                          <?php endforeach;?>
+                            <?php foreach ($data['kategori'] as $kategori): ?>
+                                <li>
+                                    <a class="dropdown-item"
+                                        href="<?= BASEURL; ?>/kategori/detail/<?= $kategori['id_kategori'] ?>">
+                                        <?= $kategori['nama_kategori'] ?>
+                                    </a>
+                                </li>
+                            <?php endforeach; ?>
                         </ul>
                     </li>
 
-                    <li class="nav-item mt-2">
-                        <a class="nav-link fw-semibold fs-6  <?= ($data['judul'] === 'About Us') ? 'text-primary active' : '' ?>" href="<?= BASEURL;?>/about">Tentang Kami</a>
+                    <li class="nav-item ">
+                        <a class="nav-link fw-semibold fs-6  <?= ($data['judul'] === 'About Us') ? 'text-primary active' : '' ?>"
+                            href="<?= BASEURL; ?>/about">Tentang Kami</a>
                     </li>
-                    <?php if (isset($_SESSION['id_profile'])) {?>
-                        <li class="nav-item navbar-dropdown dropdown-user dropdown">
+                    <?php if (isset($_SESSION['id_profile'])) { ?>
+
+                        <li class="nav-item navbar-dropdown dropdown-user dropdown mt-n2">
                             <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                 data-bs-toggle="dropdown">
-                                <div class="avatar avatar-online">
-                                    <img src="<?= BASEURL;?>/public/img/profile/<?= $data['login']['foto_user']?>" alt class="w-px-40 h-auto rounded-circle" />
+                                <div class="avatar ">
+                                    <img src="<?= BASEURL; ?>/public/img/profile/<?= $data['login']['foto_user'] ?>" alt
+                                        class="w-px-40 h-auto rounded-circle" />
                                 </div>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-end">
@@ -144,11 +151,13 @@
                                     <div class="d-flex align-items-center dropdown-item">
                                         <div class="flex-shrink-0 me-3">
                                             <div class="avatar avatar-online">
-                                                <img src="<?= BASEURL;?>/public/img/profile/<?= $data['login']['foto_user']?>" alt
-                                                    class="w-px-40 h-auto rounded-circle" />
+                                                <img src="<?= BASEURL; ?>/public/img/profile/<?= $data['login']['foto_user'] ?>"
+                                                    alt class="w-px-40 h-auto rounded-circle" />
                                             </div>
                                         </div>
-                                        <span class="fw-semibold d-block"><?= $data['login']['nama_user']?></span>
+                                        <span class="fw-semibold d-block">
+                                            <?= $data['login']['nama_user'] ?>
+                                        </span>
                                     </div>
 
                                 </li>
@@ -156,13 +165,13 @@
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= BASEURL;?>/profile/kelas_saya">
+                                    <a class="dropdown-item" href="<?= BASEURL; ?>/profile/kelas_saya">
                                         <i class="bx bx-book me-2"></i>
                                         <span class="align-middle"> Kelas</span>
                                     </a>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= BASEURL;?>/profile">
+                                    <a class="dropdown-item" href="<?= BASEURL; ?>/profile">
                                         <i class="bx bx-user me-2"></i>
                                         <span class="align-middle"> Profile</span>
                                     </a>
@@ -171,23 +180,25 @@
                                     <div class="dropdown-divider"></div>
                                 </li>
                                 <li>
-                                    <a class="dropdown-item" href="<?= BASEURL;?>/auth/logout">
+                                    <a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">
                                         <i class="bx bx-power-off me-2"></i>
                                         <span class="align-middle">Log Out</span>
                                     </a>
                                 </li>
                             </ul>
                         </li>
-                        <?php }else{?>
-                        <li class="mt-2">      
-                            <a href="<?= BASEURL;?>/auth/login" type="button" class="btn btn-outline-primary">Masuk</a>
-                            <a href="<?= BASEURL;?>/auth/regist" class="btn btn-primary">Daftar</a>
-                        </li>
-                        <?php }?>
-                    </ul>
-                </div>
+                    <?php } else { ?>
+
+                        <a href="<?= BASEURL; ?>/auth/login" type="button" class="btn btn-outline-primary me-2 ">Masuk</a>
+                        <a href="<?= BASEURL; ?>/auth/regist" class="btn btn-primary">Daftar</a>
+
+
+
+                    <?php } ?>
+                </ul>
             </div>
-        </nav>
-        <br>
+        </div>
+    </nav>
+    <br>
     <br>
     <br>
