@@ -5,24 +5,27 @@
       <div class="card mb-4">
         <div class="card-body">
           <p class="text-secondary fs-6">Tugas Kelas</p>
-          <p class="mt-n3 fs-5 fw-semibold">Kelas <span><?= $data['kelas']['nama_kelas'] ?></span></p>
-          <?php if ($data['kelas']['penugasan'] === NULL) :?>  
+          <p class="mt-n3 fs-5 fw-semibold">Kelas <span>
+              <?= $data['kelas']['nama_kelas'] ?>
+            </span></p>
+          <?php if ($data['kelas']['penugasan'] === NULL): ?>
             <div class="row justify-content-between">
               <div class="col-9 d-flex gap-2">
               </div>
               <div class="col-3">
                 <div class="d-grid gap-3 d-md-flex d-flex justify-content-md-end">
                   <div class="text-center">
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#ModalTambahTugas">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                      data-bs-target="#ModalTambahTugas">
                       Tambah Tugas
                     </button>
                   </div>
                 </div>
               </div>
             </div>
-          <?php endif?>
+          <?php endif ?>
           <br>
-          <?php if ($data['kelas']['penugasan'] !== NULL) :?>
+          <?php if ($data['kelas']['penugasan'] !== NULL): ?>
             <div class="table-responsive text-nowrap">
               <!-- Tugas Kelas Table -->
               <table class="table table-hover">
@@ -36,10 +39,9 @@
                   <tr class="text-center">
                     <td>
                       <div class="d-grid gap-2 d-md-flex d-flex justify-content-md-center">
-                        <a href="<?= BASEURL; ?>/penugasan/detail/<?= $data['kelas']['id_kelas'] ?>" 
-                        class="btn btn-primary me-md-2 btn-sm ModalUbahTugas" data-bs-toggle="modal" 
-                        data-bs-target="#ModalTambahTugas" 
-                        data-id="<?= $data['kelas']['id_kelas'] ?>">Edit</a>
+                        <a href="<?= BASEURL; ?>/penugasan/detail/<?= $data['kelas']['id_kelas'] ?>"
+                          class="btn btn-primary me-md-2 btn-sm ModalUbahTugas" data-bs-toggle="modal"
+                          data-bs-target="#ModalTambahTugas" data-id="<?= $data['kelas']['id_kelas'] ?>">Edit</a>
                       </div>
                     </td>
                     <td class="text-start">
@@ -49,7 +51,7 @@
                 </tbody>
               </table>
             </div>
-          <?php endif?>
+          <?php endif ?>
         </div>
       </div>
     </div>
@@ -59,66 +61,91 @@
       <div class="card mb-4">
         <div class="card-body">
           <p class="text-secondary fs-6">Materi</p>
-          <p class="mt-n3 fs-5 fw-semibold">Kelas <?= $data['kelas']['nama_kelas'] ?></p>
-          <div class="row align-items-end mt-4">
+          <p class="mt-n3 fs-5 fw-semibold">Kelas
+            <?= $data['kelas']['nama_kelas'] ?>
+          </p>
+
+          <div class="d-flex justify-content-between gap-5">
             <!-- Materi Search Form -->
-            <form action="<?= BASEURL; ?>/mentor/materi" method="post">
-              <label for="exampleFormControlInput1" class="form-label">Cari Materi</label>
-              <div class="input-group mb-3">
-                <input type="text" class="form-control" placeholder="Cari Data" name="keyword" id="keyword">
-                <button class="btn btn-primary" type="submit" id="tombolCari" autocomplete="off">Cari Materi</button>
-            </form>
-            <button type="button" class="btn btn-primary ModalTambahMateri" data-bs-toggle="modal" data-bs-target="#formModalMateri">
-              <i class='bx bx-plus'></i>
-            </button>
+            <div class="">
+              <form action="<?= BASEURL; ?>/mentor/materi" method="post">
+                <label for="exampleFormControlInput1" class="form-label">Cari Materi</label>
+                <div class="input-group mb-3 gap-2">
+                  <input type="text" class="form-control rounded" placeholder="Cari Data" name="keyword" id="keyword">
+                  <button class="btn btn-primary rounded" type="submit" id="tombolCari" autocomplete="off">Cari
+                    Materi</button>
+              </form>
             </div>
+
+
+            <div class="">
+              <button type="button" class="btn btn-primary ModalTambahMateri rounded" data-bs-toggle="modal"
+                data-bs-target="#formModalMateri">
+                <i class='bx bx-plus'></i>Tambah Materi
+              </button>
+            </div>
+
+          </div>
+
+          <div class="row align-items- mt-4 gap-5">
+
           </div>
         </div>
       </div>
     </div>
-
-    <!-- Materi Table -->
-    <div class="card">
-      <div class="table-responsive text-nowrap">
-        <table class="table table-hover">
-          <thead>
-            <tr class="text-center">
-              <th>Actions</th>
-              <th>Preview Materi</th>
-              <th>Urutan</th>
-              <th>Judul</th>
-              <th>Deskripsi</th>
-            </tr>
-          </thead>
-          <tbody class="table-border-bottom-4">
-            <?php foreach ($data['materi'] as $materi) : ?>
-              <tr class="text-center">
-                <!-- Materi Actions -->
-                <td>
-                  <div class="d-grid gap-2 d-md-flex d-flex justify-content-md-end">
-                    <a href="<?= BASEURL; ?>/materi/detail/<?= $materi['id_materi'] ?>" class="btn btn-primary me-md-2 btn-sm ModalUbahMateri" data-bs-toggle="modal" data-bs-target="#formModalMateri" data-id="<?= $materi['id_materi'] ?>">Edit</a>
-                    <a href="<?= BASEURL; ?>/materi/hapus/<?= $materi['id_materi'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Yakin?')">Hapus</a>
-                  </div>
-                </td>
-                <!-- Preview Materi -->
-                <td class="align-content-center align-self-center ">
-                  <a href="<?= $materi['link_materi'] ?>" class="btn btn-info btn-sm">Link Materi</a>
-                </td>
-                <!-- Urutan -->
-                <td><?= $materi['urutan_materi'] ?><br></td>
-                <!-- Judul -->
-                <td><?= $materi['judul'] ?></td>
-                <!-- Deskripsi Materi -->
-                <td><?= $materi['deskripsi_materi'] ?></td>
-              </tr>
-            <?php endforeach; ?>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <br>
-    <br>
   </div>
+
+  <!-- Materi Table -->
+  <div class="card">
+    <div class="table-responsive text-nowrap">
+      <table class="table table-hover">
+        <thead>
+          <tr class="text-center">
+            <th>Actions</th>
+            <th>Preview Materi</th>
+            <th>Urutan</th>
+            <th>Judul</th>
+            <th>Deskripsi</th>
+          </tr>
+        </thead>
+        <tbody class="table-border-bottom-4">
+          <?php foreach ($data['materi'] as $materi): ?>
+            <tr class="text-center">
+              <!-- Materi Actions -->
+              <td>
+                <div class="d-grid gap-2 d-md-flex d-flex justify-content-md-end">
+                  <a href="<?= BASEURL; ?>/materi/detail/<?= $materi['id_materi'] ?>"
+                    class="btn btn-primary me-md-2 btn-sm ModalUbahMateri" data-bs-toggle="modal"
+                    data-bs-target="#formModalMateri" data-id="<?= $materi['id_materi'] ?>">Edit</a>
+                  <a href="<?= BASEURL; ?>/materi/hapus/<?= $materi['id_materi'] ?>" class="btn btn-danger btn-sm"
+                    onclick="return confirm('Yakin?')">Hapus</a>
+                </div>
+              </td>
+              <!-- Preview Materi -->
+              <td class="align-content-center align-self-center ">
+                <a href="<?= $materi['link_materi'] ?>" class="btn btn-info btn-sm">Link Materi</a>
+              </td>
+              <!-- Urutan -->
+              <td>
+                <?= $materi['urutan_materi'] ?><br>
+              </td>
+              <!-- Judul -->
+              <td>
+                <?= $materi['judul'] ?>
+              </td>
+              <!-- Deskripsi Materi -->
+              <td>
+                <?= $materi['deskripsi_materi'] ?>
+              </td>
+            </tr>
+          <?php endforeach; ?>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <br>
+  <br>
+</div>
 </div>
 
 <!-- Materi Modal -->
@@ -134,7 +161,8 @@
         <form action="<?= BASEURL; ?>/materi/tambah" method="post" enctype="multipart/form-data">
           <!-- Form Inputs -->
           <input type="hidden" class="form-control" id="id_materi" name="id_materi">
-          <input type="hidden" class="form-control" id="id_kelas" name="id_kelas" value="<?= $data['kelas']['id_kelas'] ?>">
+          <input type="hidden" class="form-control" id="id_kelas" name="id_kelas"
+            value="<?= $data['kelas']['id_kelas'] ?>">
           <input type="hidden" class="form-control" id="h_id_kelas" name="h_id_kelas">
           <div class="mb-3">
             <label for="urutan_materi" class="form-label">Urutan Materi</label>
@@ -152,11 +180,11 @@
             <label for="deskripsi_materi" class="form-label">Deskripsi Materi</label>
             <input type="text" class="form-control" id="deskripsi_materi" name="deskripsi_materi">
           </div>
-        </div>
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-          <button type="submit" class="btn btn-primary">Tambah Data</button>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary">Tambah Data</button>
         </form>
       </div>
     </div>
@@ -174,21 +202,23 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-          <!-- Tambah Tugas Form -->
-          <form action="<?= BASEURL; ?>/penugasan/tambah" method="post" enctype="multipart/form-data">
+        <!-- Tambah Tugas Form -->
+        <form action="<?= BASEURL; ?>/penugasan/tambah" method="post" enctype="multipart/form-data">
           <div class="row">
             <div class="mb-3">
-              <input type="hidden" class="form-control" id="id_kelas" name="id_kelas" value="<?= $data['kelas']['id_kelas'] ?>">
+              <input type="hidden" class="form-control" id="id_kelas" name="id_kelas"
+                value="<?= $data['kelas']['id_kelas'] ?>">
               <label for="penugasan" class="form-label">Deskripsi Tugas</label>
-              <textarea class="form-control" id="penugasan" name="penugasan" rows="3" value="Deskripsi Tugas"></textarea>
+              <textarea class="form-control" id="penugasan" name="penugasan" rows="3"
+                value="Deskripsi Tugas"></textarea>
             </div>
           </div>
-        </div>
-        <!-- Modal Footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
+      </div>
+      <!-- Modal Footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Batal</button>
+        <button type="submit" class="btn btn-primary">Simpan</button>
+      </div>
       </form>
     </div>
   </div>
