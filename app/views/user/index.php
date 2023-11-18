@@ -45,7 +45,7 @@
         <div class="row content-value   mt-3 rounded">
             <div class="col-md-4 ">
                 <div class="d-flex gap-3">
-                    <img src="<?= BASEURL; ?>/public/img/icons/unicons/online-meeting (1).png"
+                    <img src="<?= BASEURL; ?>/public/img/icons/unicons/Peserta.svg"
                         class="img mb-4 p-3 bg-primary rounded" alt="" />
                     <div class="d-flex flex-column g-0 justify-content-start ">
                         <p class="fw-bold fs-5 text-black">4 Ribu Peserta</p>
@@ -58,7 +58,7 @@
             </div>
             <div class="col-md-4 ">
                 <div class="d-flex gap-3">
-                    <img src="<?= BASEURL; ?>/public/img/icons/unicons/online-test 1.svg"
+                    <img src="<?= BASEURL; ?>/public/img/icons/unicons/Mentor.svg"
                         class="img mb-4 p-3 bg-primary rounded" alt="" />
                     <div class="d-flex flex-column g-0 justify-content-start ">
                         <p class="fw-bold fs-5 text-black">25+ Mentor Berpengalaman</p>
@@ -70,7 +70,7 @@
             </div>
             <div class="col-md-4 ">
                 <div class="d-flex gap-3">
-                    <img src="<?= BASEURL; ?>/public/img/icons/unicons/paypal.png"
+                    <img src="<?= BASEURL; ?>/public/img/icons/unicons/Pilihan kelas.svg"
                         class="img mb-4 p-3 bg-primary rounded" alt="" />
                     <div class="d-flex flex-column g-0 justify-content-start ">
                         <p class="fw-bold fs-5 text-black">Banyak Pilihan Kelas</p>
