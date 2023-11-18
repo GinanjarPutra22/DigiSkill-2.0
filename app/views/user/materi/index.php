@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default" data-assets-path="<?= BASEURL?>/public/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="light-style layout-menu-fixed" dir="ltr" data-theme="theme-default"
+    data-assets-path="<?= BASEURL ?>/public/" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
@@ -13,11 +13,11 @@
     <meta name="description" content="" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?= BASEURL?>/public/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/vendor/fonts/boxicons.css" />
 
     <!-- Favicon -->
 
-    <link rel="icon" type="image/x-icon" href="<?= BASEURL?>/public/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= BASEURL ?>/public/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -27,25 +27,26 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?= BASEURL?>/public/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="<?= BASEURL?>/public/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?= BASEURL?>/public/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="<?= BASEURL?>/public/css/demo.css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/vendor/css/theme-default.css"
+        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?= BASEURL?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
-    <link rel="stylesheet" href="<?= BASEURL?>/public/vendor/libs/apex-charts/apex-charts.css" />
+    <link rel="stylesheet" href="<?= BASEURL ?>/public/vendor/libs/apex-charts/apex-charts.css" />
 
     <!-- Page CSS -->
 
     <!-- Helpers -->
-    <script src="<?= BASEURL?>/public/vendor/js/helpers.js"></script>
+    <script src="<?= BASEURL ?>/public/vendor/js/helpers.js"></script>
 
 
-    <script src="<?= BASEURL?>/public/js/config.js"></script>
+    <script src="<?= BASEURL ?>/public/js/config.js"></script>
 </head>
 
 <body class="bg-white">
@@ -117,23 +118,27 @@
                     <li class="nav-item menu-item ps-3 pe-2 py-2 fw-bold fs-4">
                         Materi
                     </li>
-                    <?php foreach ($data['materi'] as $materi) :?>
+                    <?php foreach ($data['materi'] as $materi): ?>
                         <li class="nav-item menu-item ps-3 pe-2 py-2 ">
-                            <button type="button" class="nav-link  text-start <?= ($materi['urutan_materi'] === 1) ? 'active' : '' ?>" role="tab" data-bs-toggle="tab"
-                                data-bs-target="#materi<?= $materi['urutan_materi']?>" aria-controls="navs-pills-top-profile" aria-selected="false">
-                                <span class="me-1"><?= $materi['urutan_materi']?></span>
-                                <?= $materi['judul']?>
+                            <button type="button"
+                                class="nav-link  text-start <?= ($materi['urutan_materi'] === 1) ? 'active' : '' ?>"
+                                role="tab" data-bs-toggle="tab" data-bs-target="#materi<?= $materi['urutan_materi'] ?>"
+                                aria-controls="navs-pills-top-profile" aria-selected="false">
+                                <span class="me-1">
+                                    <?= $materi['urutan_materi'] ?>
+                                </span>
+                                <?= $materi['judul'] ?>
                             </button>
                         </li>
-                    <?php endforeach;?>
+                    <?php endforeach; ?>
                     <li class="nav-item menu-item ps-3 pe-2 py-2 fw-bold fs-4">
                         Tugas
                     </li>
                     <li class="nav-item menu-item ps-3 pe-2 py-2 ">
-                        <button type="button" class="nav-link  text-start" role="tab" data-bs-toggle="tab" 
-                        data-bs-target="#Tugas" aria-controls="navs-pills-top-profile" aria-selected="false">
+                        <button type="button" class="nav-link  text-start" role="tab" data-bs-toggle="tab"
+                            data-bs-target="#Tugas" aria-controls="navs-pills-top-profile" aria-selected="false">
                             <span class="me-1"></span>
-                           test
+                            test
                         </button>
                     </li>
                 </ul>
@@ -155,7 +160,7 @@
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
                         <!-- Search -->
                         <div class="navbar-nav align-items-center nav-link">
-                            <a href="<?= BASEURL?>/profile/kelas_saya" class="text-secondary fs-5">
+                            <a href="<?= BASEURL ?>/profile/kelas_saya" class="text-secondary fs-5">
                                 <i class="bx bx-chevron-left  scaleX-n1-rtl bx-sm"></i>
                                 Kembali ke kelas saya
                             </a>
@@ -174,8 +179,8 @@
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="<?= BASEURL?>/public/img/profile/<?= $data['login']['foto_user']?>" alt
-                                            class="w-px-40 h-auto rounded-circle" />
+                                        <img src="<?= BASEURL ?>/public/img/profile/<?= $data['login']['foto_user'] ?>"
+                                            alt class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
@@ -184,12 +189,14 @@
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="<?= BASEURL?>/public/img/profile/<?= $data['login']['foto_user']?>" alt
-                                                            class="w-px-40 h-auto rounded-circle" />
+                                                        <img src="<?= BASEURL ?>/public/img/profile/<?= $data['login']['foto_user'] ?>"
+                                                            alt class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block"><?= $data['login']['nama_user']?></span>
+                                                    <span class="fw-semibold d-block">
+                                                        <?= $data['login']['nama_user'] ?>
+                                                    </span>
                                                     <small class="text-muted">User</small>
                                                 </div>
                                             </div>
@@ -199,20 +206,20 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="<?= BASEURL;?>/profile/kelas_saya">
+                                        <a class="dropdown-item" href="<?= BASEURL; ?>/profile/kelas_saya">
                                             <i class="bx bx-book me-2"></i>
                                             <span class="align-middle"> Kelas</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="<?= BASEURL;?>/profile">
+                                        <a class="dropdown-item" href="<?= BASEURL; ?>/profile">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-middle"> Profile</span>
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a class="dropdown-item" href="<?= BASEURL;?>/auth/logout">
+                                        <a class="dropdown-item" href="<?= BASEURL; ?>/auth/logout">
                                             <i class="bx bx-power-off me-2"></i>
                                             <span class="align-middle">Log Out</span>
                                         </a>
@@ -231,61 +238,78 @@
                     <!-- Content -->
                     <div class="container mx-auto flex-grow-1 container-p-y">
                         <div class="tab-content">
-                            <?php foreach ($data['materi'] as $materi) :?>
-                                <div class="tab-pane fade <?= ($materi['urutan_materi'] === 1) ? 'show active' : '' ?>" id="materi<?= $materi['urutan_materi']?>" role="tabpanel">
+                            <?php foreach ($data['materi'] as $materi): ?>
+                                <div class="tab-pane fade <?= ($materi['urutan_materi'] === 1) ? 'show active' : '' ?>"
+                                    id="materi<?= $materi['urutan_materi'] ?>" role="tabpanel">
                                     <div class="ratio ratio-16x9 rounded">
-                                        <iframe class="rounded" src="<?= $materi['link_materi']?> "
-                                            title="YouTube video " allowfullscreen></iframe>
+                                        <iframe class="rounded" src="<?= $materi['link_materi'] ?> " title="YouTube video "
+                                            allowfullscreen></iframe>
                                     </div>
                                     <p class="fs-3 fw-bold mt-4">
-                                        <?= $materi['judul']?>
+                                        <?= $materi['judul'] ?>
                                     </p>
-                                    <p><?= $materi['deskripsi_materi']?></p>
+                                    <p>
+                                        <?= $materi['deskripsi_materi'] ?>
+                                    </p>
                                 </div>
-                            <?php endforeach;?>
+                            <?php endforeach; ?>
                             <div class="tab-pane fade" id="Tugas" role="tabpanel">
                                 <div>
-                                    <p class="fs-3 fw-bold"> Tugas Akhir Kelas <span><?= $data['kelas']['nama_kelas']?></span></p>
+                                    <p class="fs-3 fw-bold"> Tugas Akhir Kelas <span>
+                                            <?= $data['kelas']['nama_kelas'] ?>
+                                        </span></p>
                                 </div>
                                 <div class="Deskripsi mb-4">
                                     <p class="fs-5 fw-semibold">Deskripsi Tugas</p>
                                     <!-- Isi tugas -->
-                                    <p><?= $data['kelas']['penugasan']?></p>
+                                    <p>
+                                        <?= $data['kelas']['penugasan'] ?>
+                                    </p>
                                 </div>
                                 <hr>
-                                <?php foreach ($data['jawaban'] as $jwb) :?>
+                                <?php foreach ($data['jawaban'] as $jwb): ?>
                                     <div class="card">
                                         <div class="card-body">
-                                            <h5 class="card-title"><?= $jwb['waktu_pengumpulan']?></h5>
-                                            <p class="card-text"><?= $jwb['link_tugas_user']?></p>
+                                            <h5 class="card-title">
+                                                <?= $jwb['waktu_pengumpulan'] ?>
+                                            </h5>
+                                            <p class="card-text">
+                                                <?= $jwb['link_tugas_user'] ?>
+                                            </p>
                                         </div>
                                         <ul class="list-group list-group-flush">
-                                            <?php if ($jwb['status'] !== NULL) {?>
-                                                <?php if ($jwb['status'] === 1) {?>
+                                            <?php if ($jwb['status'] !== NULL) { ?>
+                                                <?php if ($jwb['status'] === 1) { ?>
                                                     <li class="list-group-item text-white bg-danger mb-3">Salah</li>
-                                                <?php } elseif ($jwb['status'] === 2) {?>
+                                                <?php } elseif ($jwb['status'] === 2) { ?>
                                                     <li class="list-group-item text-white bg-info mb-3">Revisi</li>
-                                                <?php } else {?>
+                                                <?php } else { ?>
                                                     <li class="list-group-item text-white bg-success mb-3">Benar</li>
-                                                <?php }?>
-                                                <li class="list-group-item"><?= $jwb['komentar_mentor']?></li>
-                                            <?php } else {?>
-                                                <li class="list-group-item text-white bg-secondary mb-3">Menunggu Penilaian Mentor</li>
-                                            <?php }?>
+                                                <?php } ?>
+                                                <li class="list-group-item">
+                                                    <?= $jwb['komentar_mentor'] ?>
+                                                </li>
+                                            <?php } else { ?>
+                                                <li class="list-group-item text-white bg-secondary mb-3">Menunggu Penilaian
+                                                    Mentor</li>
+                                            <?php } ?>
                                         </ul>
                                     </div>
-                                <?php endforeach?>
+                                <?php endforeach ?>
                                 <br>
                                 <div class="Pengumpulan">
                                     <p class="fs-5 fw-semibold">Pengumpulan Tugas Akhir</p>
                                     <!-- Isi tugas -->
                                     <div class=" mb-3">
                                         <form action="<?= BASEURL; ?>/penugasan/jawaban" method="post">
-                                            <input type="hidden" class="form-control" id="id_kelas" name="id_kelas" value="<?=$data['kelas']['id_kelas']?>">
-                                            <input type="hidden" class="form-control" id="id_profile" name="id_profile" value="<?=$data['login']['id_profile']?>">
+                                            <input type="hidden" class="form-control" id="id_kelas" name="id_kelas"
+                                                value="<?= $data['kelas']['id_kelas'] ?>">
+                                            <input type="hidden" class="form-control" id="id_profile" name="id_profile"
+                                                value="<?= $data['login']['id_profile'] ?>">
                                             <label for="link_tugas_user" class="form-label">Link Tugas Akhir</label>
-                                            <textarea class="form-control" id="link_tugas_user" name="link_tugas_user" rows="3"
-                                                placeholder="Masukan link tugas akhir" value="Deskripsi Tugas"></textarea>
+                                            <textarea class="form-control" id="link_tugas_user" name="link_tugas_user"
+                                                rows="3" placeholder="Masukan link tugas akhir"
+                                                value="Deskripsi Tugas"></textarea>
                                             <div class="text-end">
                                                 <button class="btn-primary btn">Kirim</button>
                                             </div>
@@ -301,34 +325,7 @@
                     </div>
                     <!-- / Content -->
 
-                    <!-- Footer -->
-                    <footer class="content-footer footer bg-footer-theme">
-                        <div
-                            class="container-xxl d-flex flex-wrap justify-content-between py-2 flex-md-row flex-column">
-                            <div class="mb-2 mb-md-0">
-                                ©
-                                <script>
-                                    document.write(new Date().getFullYear());
-                                </script>
-                                , made with ❤️ by
-                                <a href="https://themeselection.com" target="_blank"
-                                    class="footer-link fw-bolder">ThemeSelection</a>
-                            </div>
-                            <div>
-                                <a href="https://themeselection.com/license/" class="footer-link me-4"
-                                    target="_blank">License</a>
-                                <a href="https://themeselection.com/" target="_blank" class="footer-link me-4">More
-                                    Themes</a>
 
-                                <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                                    target="_blank" class="footer-link me-4">Documentation</a>
-
-                                <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                                    target="_blank" class="footer-link me-4">Support</a>
-                            </div>
-                        </div>
-                    </footer>
-                    <!-- / Footer -->
 
                     <div class="content-backdrop fade"></div>
                 </div>
@@ -346,18 +343,18 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="<?= BASEURL?>/public/vendor/libs/jquery/jquery.js"></script>
-    <script src="<?= BASEURL?>/public/vendor/libs/popper/popper.js"></script>
-    <script src="<?= BASEURL?>/public/vendor/js/bootstrap.js"></script>
-    <script src="<?= BASEURL?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?= BASEURL ?>/public/vendor/libs/jquery/jquery.js"></script>
+    <script src="<?= BASEURL ?>/public/vendor/libs/popper/popper.js"></script>
+    <script src="<?= BASEURL ?>/public/vendor/js/bootstrap.js"></script>
+    <script src="<?= BASEURL ?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="<?= BASEURL?>/public/vendor/js/menu.js"></script>
+    <script src="<?= BASEURL ?>/public/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="<?= BASEURL?>/public/js/main.js"></script>
+    <script src="<?= BASEURL ?>/public/js/main.js"></script>
 
     <!-- Page JS -->
 

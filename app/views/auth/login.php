@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 
-<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default" data-assets-path="<?= BASEURL;?>/public/"
-    data-template="vertical-menu-template-free">
+<html lang="en" class="light-style customizer-hide" dir="ltr" data-theme="theme-default"
+    data-assets-path="<?= BASEURL; ?>/public/" data-template="vertical-menu-template-free">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport"
         content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0" />
 
-    <title><?= $data['judul']?></title>
+    <title>
+        <?= $data['judul'] ?>
+    </title>
 
     <meta name="description" content="" />
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="<?= BASEURL;?>/public/img/favicon/favicon.ico" />
+    <link rel="icon" type="image/x-icon" href="<?= BASEURL; ?>/public/img/favicon/favicon.ico" />
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -23,25 +25,26 @@
         rel="stylesheet" />
 
     <!-- Icons. Uncomment required icon fonts -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/fonts/boxicons.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/css/theme-default.css" class="template-customizer-theme-css" />
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/css/demo.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/css/core.css" class="template-customizer-core-css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/css/theme-default.css"
+        class="template-customizer-theme-css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
 
     <!-- Page CSS -->
     <!-- Page -->
-    <link rel="stylesheet" href="<?= BASEURL;?>/public/vendor/css/pages/page-auth.css" />
+    <link rel="stylesheet" href="<?= BASEURL; ?>/public/vendor/css/pages/page-auth.css" />
     <!-- Helpers -->
-    <script src="<?= BASEURL;?>/public/vendor/js/helpers.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/js/helpers.js"></script>
 
     <!--! Template customizer & Theme config files MUST be included after core stylesheets and helpers.js in the <head> section -->
     <!--? Config:  Mandatory theme config file contain global vars & default theme options, Set your preferred theme option in this file.  -->
-    <script src="<?= BASEURL;?>/public/js/config.js"></script>
+    <script src="<?= BASEURL; ?>/public/js/config.js"></script>
 </head>
 
 <body>
@@ -55,7 +58,7 @@
                     <div class="card-body">
                         <!-- Logo -->
                         <div class="app-brand justify-content-center d-flex flex-column gap-2">
-                            <a href="<?= BASEURL;?>/auth/login" class="app-brand-link gap-2">
+                            <a href="<?= BASEURL; ?>/auth/login" class="app-brand-link gap-2">
                                 <span class="app-brand-logo demo">
                                     <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                         xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -137,7 +140,7 @@
 
                         <p class="text-center mt-3">
                             <span>Apakah belum sudah memiliki akun?</span>
-                            <a href="<?= BASEURL;?>/auth/regist">
+                            <a href="<?= BASEURL; ?>/auth/regist">
                                 <span>Daftar disini</span>
                             </a>
                         </p>
@@ -154,18 +157,18 @@
 
     <!-- Core JS -->
     <!-- build:js assets/vendor/js/core.js -->
-    <script src="<?= BASEURL;?>/public/vendor/libs/jquery/jquery.js"></script>
-    <script src="<?= BASEURL;?>/public/vendor/libs/popper/popper.js"></script>
-    <script src="<?= BASEURL;?>/public/vendor/js/bootstrap.js"></script>
-    <script src="<?= BASEURL;?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/libs/jquery/jquery.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/libs/popper/popper.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/js/bootstrap.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/libs/perfect-scrollbar/perfect-scrollbar.js"></script>
 
-    <script src="<?= BASEURL;?>/public/vendor/js/menu.js"></script>
+    <script src="<?= BASEURL; ?>/public/vendor/js/menu.js"></script>
     <!-- endbuild -->
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="<?= BASEURL;?>/public/js/main.js"></script>
+    <script src="<?= BASEURL; ?>/public/js/main.js"></script>
 
     <!-- Page JS -->
 
