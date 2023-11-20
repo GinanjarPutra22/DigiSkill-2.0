@@ -65,30 +65,23 @@
             <?= $data['kelas']['nama_kelas'] ?>
           </p>
 
-          <div class="d-flex justify-content-between gap-5">
-            <!-- Materi Search Form -->
-            <div class="">
-              <form action="<?= BASEURL; ?>/mentor/materi" method="post">
-                <label for="exampleFormControlInput1" class="form-label">Cari Materi</label>
-                <div class="input-group mb-3 gap-2">
-                  <input type="text" class="form-control rounded" placeholder="Cari Data" name="keyword" id="keyword">
-                  <button class="btn btn-primary rounded" type="submit" id="tombolCari" autocomplete="off">Cari
-                    Materi</button>
-              </form>
-            </div>
 
 
-            <div class="">
-              <button type="button" class="btn btn-primary ModalTambahMateri rounded" data-bs-toggle="modal"
-                data-bs-target="#formModalMateri">
-                <i class='bx bx-plus'></i>Tambah Materi
-              </button>
-            </div>
-
-          </div>
-
-          <div class="row align-items- mt-4 gap-5">
-
+          <div class="d-flex mb-3 row gap-5">
+            <form action="<?= BASEURL; ?>/mentor/materi" method="post">
+              <label for="exampleFormControlInput1" class="form-label">Cari Materi</label>
+              <div class="input-group mb-3 gap-2">
+                <input type="text" class="form-control rounded" placeholder="Cari Data" name="keyword" id="keyword">
+                <button class="btn btn-primary rounded" type="submit" id="tombolCari" autocomplete="off">Cari
+                  Materi</button>
+            </form>
+            <button class="btn btn-primary me-5 rounded">
+              <i class='bx bx-refresh'></i>
+            </button>
+            <button type="button" class="btn btn-primary ModalTambahMateri rounded" data-bs-toggle="modal"
+              data-bs-target="#formModalMateri">
+              <i class='bx bx-plus'></i>Tambah Materi
+            </button>
           </div>
         </div>
       </div>
