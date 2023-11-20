@@ -6,9 +6,8 @@
 
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row  justify-content-start">
-                            <?php if($data['kelas'][0]['id_kelas']===NULL) {?>
-                                <h1>Data Kosong
-                                </h1>
+                            <?php if(!$data['kelas']) {?>
+                                <h1 class="m-center text-center">Data Kosong</h1>
                             <?php }else{
                                 foreach ($data['kelas'] as $kelas) :?>
                                 <div class="col-lg-4 col-md-6 mb-4 rounded ">
