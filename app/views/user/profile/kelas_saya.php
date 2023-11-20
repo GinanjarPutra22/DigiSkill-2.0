@@ -7,7 +7,7 @@
                     <div class="container-xxl flex-grow-1 container-p-y">
                         <div class="row  justify-content-start">
                             <?php if(!$data['kelas']) {?>
-                                <h1 class="m-center text-center">Data Kosong</h1>
+                                <h1 class="m-center text-center">Anda belum memilih Kelas</h1>
                             <?php }else{
                                 foreach ($data['kelas'] as $kelas) :?>
                                 <div class="col-lg-4 col-md-6 mb-4 rounded ">
@@ -42,14 +42,6 @@
                                                     data-bs-toggle="modal" data-bs-target="#ModalPenilaian" 
                                                     data-id="<?= $kelas['id_kelas']?>">Beri Penilian
                                                 </a>
-                                                <a href="<?= BASEURL;?>/penilaian/edit/<?= $kelas['id_kelas']?>" 
-                                                    class="btn  btn-outline-primary btn-sm mt-1 btn-lg px-3 py-2 E_ModalPenilaian" 
-                                                    data-bs-toggle="modal" data-bs-target="#ModalPenilaian" 
-                                                    data-id="<?= $kelas['id_kelas']?>">Edit Beri Penilian
-                                                </a>
-                                                <div class="btn  btn-outline-primary btn-sm mt-1 btn-lg px-3 py-2"
-                                                    type="button" data-bs-toggle="modal" data-bs-target="#review">Review
-                                                    Kelas
                                                 </div>
                                             </div>
                                         </div>

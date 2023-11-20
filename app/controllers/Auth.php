@@ -67,13 +67,16 @@ class Auth extends Controller{
                     exit;
                 } elseif ($_SESSION['id_role'] == 3) {
                     header("Location: ". BASEURL ."/Dashboard/index"); // Arahkan ke tampilan user
+                    Flasher::seFlash('Anda','Berhasil','Masuk','success');
                     exit;
                 }
+            }else {
+                // Tampilkan formulir login
+                header("Location: ". BASEURL ."/auth/index");
             }
         } else {
             // Tampilkan formulir login
             header("Location: ". BASEURL ."/auth/index");
-            exit;
         }
     }
     public function logout() {
