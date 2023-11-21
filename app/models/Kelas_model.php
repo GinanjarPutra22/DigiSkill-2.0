@@ -93,7 +93,7 @@ class Kelas_model{
 
     // menambah data
     public function tambahDataKelas($data){
-        var_dump($_FILES);die;
+        // var_dump($_FILES);die;
         $query = "INSERT INTO kelas 
                     VALUES 
                     ('', :id_kategori, NULL, :nama_kelas, :detail, :thumbnail, :detail_program, :deskripsi, NULL, :kode_kelas)";

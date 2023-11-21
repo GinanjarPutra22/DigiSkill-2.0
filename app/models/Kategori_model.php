@@ -91,7 +91,7 @@ class Kategori_model{
     public function hapusDataKategori($id)
     {
         // $query ="DELETE FROM kelas WHERE id_profile=:id";
-        $query ="DELETE * FROM '. $this->table.' WHERE kategori.id_kategori =:id";
+        $query ="DELETE FROM ". $this->table." WHERE id_kategori =:id";
 
         $this->db->query($query);
         $this->db->bind('id',$id);

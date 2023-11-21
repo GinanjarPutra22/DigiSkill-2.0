@@ -8,6 +8,7 @@ class Kategori extends Controller{
         if (isset ($_SESSION['id_profile'])) {
             $this->data['login'] = $this->model('Auth_model')->getLoginById($_SESSION['id_profile']);
         }
+        Flasher::flash();
     }
 
     // public function index()
@@ -92,5 +93,18 @@ class Kategori extends Controller{
         $this->view('componens/header',$data);
         $this->view('user/kategori/index',$data);
         $this->view('componens/footer',$data);
+    }
+
+    public function hapus($id){
+        if ( $this->model('Kategori_model')->hapusDataKategori($id) > 0) { //memanggil Kategori_model untuk mengolah data
+            Flasher::seFlash('Kategori','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: ' . BASEURL .'/admin/data_kelas/');
+            exit;
+        }
+        else {
+            Flasher::seFlash('Kategori','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
+            header('Location: ' . BASEURL .'/admin/data_kelas/');
+            exit;
+        }
     }
 }

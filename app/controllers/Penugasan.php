@@ -26,19 +26,6 @@ class Penugasan extends Controller{
     // }
 
 
-    // menambahkan data Tools
-    public function tambah(){
-        if ( $this->model('Penugasan_model')->tambahDataPenugasan($_POST) > 0) { //memanggil Tools_model untuk mengolah data
-            Flasher::seFlash('Penugasan','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/profile/kelas_saya');
-            exit;
-        }
-        else {
-            Flasher::seFlash('Penugasan','Gagal','ditambahkan','danger');// mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/profile/kelas_saya');
-            exit;
-        }
-    }
     public function jawaban(){
         if ( $this->model('Penugasan_model')->tambahJawabanPenugasan($_POST) > 0) { //memanggil Tools_model untuk mengolah data
             Flasher::seFlash('Penugasan','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
@@ -78,7 +65,7 @@ class Penugasan extends Controller{
         echo json_encode( $this->model('Penugasan_model')->getPenugasanById($_POST['id']));
     }
 
-    // mengubah data Tools sesuai id yang dipilih
+    // menambah penugasan
     public function ubah(){
         if ( $this->model('Penugasan_model')->ubahDataPenugasan($_POST) > 0) { //memanggil Tools_model untuk mengolah data
             Flasher::seFlash('Penugasan','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher

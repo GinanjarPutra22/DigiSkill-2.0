@@ -11,6 +11,7 @@ class Admin extends Controller{
         if (!isset($_SESSION['id_role']) || $_SESSION['id_role'] !== 1) {
             header("Location: " . BASEURL . "/Dashboard/index");
         }
+        Flasher::flash();
         
     }
 

@@ -90,7 +90,7 @@ class Materi_model{
     //menghapus data
     public function hapusDataMateri($id)
     {
-        $query ="DELETE FROM '. $this->table.' WHERE id_materi=:id";
+        $query ="DELETE FROM ". $this->table." WHERE id_materi=:id";
         $this->db->query($query);
         $this->db->bind('id',$id);
         $this->db->execute();
@@ -100,13 +100,13 @@ class Materi_model{
 
     //mengubah data
     public function ubahDataMateri($data){
-        var_dump($data);die;
-        $query = "UPDATE '. $this->table.'
+        // var_dump($data);die;
+        $query = "UPDATE ". $this->table."
                     SET 
                     urutan_materi = :urutan_materi,
                     judul = :judul,
                     link_materi = :link_materi,
-                    deskripsi_materi = :deskripsi_materi,
+                    deskripsi_materi = :deskripsi_materi
                     WHERE id_materi = :id_materi
                     ";//nama_kelas= :nama_kelas kiri database kanan data yang di bind
 
@@ -124,7 +124,7 @@ class Materi_model{
         // var_dump($data);die;
 
         $this->db->query($query);
-        $this->db->bind('id_materi', $data['h_id_materi']); //$data[]'nama'] dari name form
+        $this->db->bind('id_materi', $data['id_materi']); //$data[]'nama'] dari name form
         $this->db->bind('urutan_materi', $data['urutan_materi']); //$data[]'nama'] dari name form
         $this->db->bind('judul', $data['judul']); 
         $this->db->bind('link_materi',$data['link_materi'] ); 

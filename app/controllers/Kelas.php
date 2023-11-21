@@ -8,6 +8,7 @@ class Kelas extends Controller{
         if (isset ($_SESSION['id_profile'])) {
             $this->data['login'] = $this->model('Auth_model')->getLoginById($_SESSION['id_profile']);
         }
+        Flasher::flash();
     }
 
     // public function index()
@@ -114,12 +115,12 @@ class Kelas extends Controller{
     // mengubah data kelas sesuai id yang dipilih
     public function ubah(){
         if ( $this->model('Kelas_model')->ubahDataKelas($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Kelas','Berhasil','diubah','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_kelas');
+            Flasher::seFlash('Data Kelas','Berhasil','diubah','success'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: ' . BASEURL .'/admin/data_Data ');
             exit;
         }
         else {
-            Flasher::seFlash('Kelas','Gagal','diubah','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Data Kelas','Gagal','diubah','danger');// mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/admin/data_kelas');
             exit;
         }

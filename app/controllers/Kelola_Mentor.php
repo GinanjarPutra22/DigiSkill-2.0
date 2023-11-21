@@ -8,6 +8,7 @@ class Kelola_Mentor extends Controller{
         if (isset ($_SESSION['id_profile_mentor'])) {
             $this->data['login'] = $this->model('Auth_model')->getLoginByIdMentor($_SESSION['id_profile_mentor']);
         }
+        Flasher::flash();
     }
     
     // public function index()
@@ -78,12 +79,12 @@ class Kelola_Mentor extends Controller{
     public function hapus($id){
         if ( $this->model('Mentor_model')->hapusDataMentor($id) > 0) { //memanggil User_model untuk mengolah data
             Flasher::seFlash('Mentor','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/mentor/index');
+            header('Location: ' . BASEURL .'/admin/data_mentor');
             exit;
         }
         else {
             Flasher::seFlash('Mentor','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/mentor/index');
+            header('Location: ' . BASEURL .'/admin/data_mentor');
             exit;
         }
     }

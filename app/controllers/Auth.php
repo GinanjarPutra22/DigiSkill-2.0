@@ -2,6 +2,11 @@
 
 class Auth extends Controller{
 
+    public function __construct()
+    {
+        Flasher::flash();
+    }
+
     public function index(){
         //mempersiapkan data yang digunakan
         $data['judul'] = "Login";
@@ -22,23 +27,25 @@ class Auth extends Controller{
     // menambah/ registrasi
     public function tambah(){
         if ( $this->model('Auth_model')->tambahDataUser($_POST) > 0) { //memanggil Auth_model untuk mengolah data
-            // Flasher::seFlash('Auth','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Data','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/auth/index');
             exit;
         }
         else {
-            header('Location: ' . BASEURL .'/auth/index');
+            Flasher::seFlash('Data','Gagal','ditambahkan','danger');
+            header('Location: ' . BASEURL .'/auth/regist');
             exit;
         }
     }
 
     public function ubah(){
         if ( $this->model('Auth_model')->ubahDataUser($_POST) > 0) { //memanggil Auth_model untuk mengolah data
-            // Flasher::seFlash('Auth','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Data','Berhasil','Diubah','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/profile/index');
             exit;
         }
         else {
+            Flasher::seFlash('Data','Gagal','Diubah','danger');
             header('Location: ' . BASEURL .'/profile/index');
             exit;
         }
@@ -60,19 +67,22 @@ class Auth extends Controller{
             if ($user) {
                 // Login berhasil
                 if ($_SESSION['id_role'] == 1) {
+                    Flasher::seFlash('Admin','Berhasil','Masuk','success');
                     header("Location: ". BASEURL ."/Admin/index"); // Arahkan ke tampilan admin
                     exit;
                 } elseif ($_SESSION['id_role'] == 2) {
+                    Flasher::seFlash('Mentor','Berhasil','Masuk','success');
                     header("Location: ". BASEURL ."/Mentor/index"); // Arahkan ke tampilan mentor
                     exit;
                 } elseif ($_SESSION['id_role'] == 3) {
+                    Flasher::seFlash('','Berhasil','Masuk','success');
                     header("Location: ". BASEURL ."/Dashboard/index"); // Arahkan ke tampilan user
-                    Flasher::seFlash('Anda','Berhasil','Masuk','success');
                     exit;
                 }
             }else {
                 // Tampilkan formulir login
                 header("Location: ". BASEURL ."/auth/index");
+                Flasher::seFlash('','Gagal','Masuk Pastikan Username dan Password Benar','danger');
             }
         } else {
             // Tampilkan formulir login
@@ -80,14 +90,16 @@ class Auth extends Controller{
         }
     }
     public function logout() {
+        
         // Hapus semua data sesi
         session_unset();
         
         // Hancurkan sesi
         session_destroy();
 
+       
         // Arahkan pengguna ke halaman login
-        header("Location:". BASEURL ."/Dashboard/index"); // Ganti login.php dengan halaman login Anda
+        header("Location:". BASEURL ."/dashboard/index"); // Ganti login.php dengan halaman login Anda
         exit();
     }
 }

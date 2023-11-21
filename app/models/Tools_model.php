@@ -66,7 +66,7 @@ class Tools_model{
     //menghapus data
     public function hapusDataTools($id)
     {
-        $query ="DELETE FROM '. $this->table.' WHERE id_tools=:id";
+        $query ="DELETE FROM ". $this->table." WHERE id_tools=:id";
         $this->db->query($query);
         $this->db->bind('id',$id);
         $this->db->execute();

@@ -13,6 +13,7 @@ class Materi extends Controller{
         else {
             header('Location: ' . BASEURL .'/auth/index');
         }
+        Flasher::flash();
     }
 
     public function index($id)
@@ -71,12 +72,12 @@ class Materi extends Controller{
     // mengubah data Materi sesuai id yang dipilih
     public function ubah(){
         if ( $this->model('Materi_model')->ubahDataMateri($_POST) > 0) { //memanggil Materi_model untuk mengolah data
-            Flasher::seFlash('Materi','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Materi','Berhasil','diubah','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/materi');
             exit;
         }
         else {
-            Flasher::seFlash('Materi','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Materi','Gagal','diubah','danger');// mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/materi');
             exit;
         }

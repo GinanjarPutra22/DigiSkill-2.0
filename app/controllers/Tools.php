@@ -63,12 +63,12 @@ class Tools extends Controller{
     // mengubah data Tools sesuai id yang dipilih
     public function ubah(){
         if ( $this->model('Tools_model')->ubahDataTools($_POST) > 0) { //memanggil Tools_model untuk mengolah data
-            Flasher::seFlash('Tools','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Tools','Berhasil','diubah','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/tools');
             exit;
         }
         else {
-            Flasher::seFlash('Tools','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Tools','Gagal','diubah','danger');// mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/tools');
             exit;
         }

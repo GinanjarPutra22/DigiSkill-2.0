@@ -8,6 +8,7 @@ class Profile extends Controller{
         if (isset ($_SESSION['id_profile'])) {
             $this->data['login'] = $this->model('Auth_model')->getLoginById($_SESSION['id_profile']);
         }
+        Flasher::flash(); 
     }
 
     public function index()

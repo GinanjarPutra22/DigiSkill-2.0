@@ -156,7 +156,6 @@
           <input type="hidden" class="form-control" id="id_materi" name="id_materi">
           <input type="hidden" class="form-control" id="id_kelas" name="id_kelas"
             value="<?= $data['kelas']['id_kelas'] ?>">
-          <input type="hidden" class="form-control" id="h_id_kelas" name="h_id_kelas">
           <div class="mb-3">
             <label for="urutan_materi" class="form-label">Urutan Materi</label>
             <input type="text" class="form-control" id="urutan_materi" name="urutan_materi">

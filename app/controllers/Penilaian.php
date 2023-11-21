@@ -28,39 +28,27 @@ class Penilaian extends Controller{
 
     public function tambah(){
         // var_dump($_POST);die;
-        if ( $this->model('Penilaian_model')->tambahDataPenilaian($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Penilaian','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
+        if ( $this->model('Penilaian_model')->tambahDataPenilaian($_POST) > 0) { //penilaian kelas
+            Flasher::seFlash('Penilaian','Berhasil','ditambahkan','success'); 
             header('Location: ' . BASEURL .'/profile/kelas_saya');
             exit;
         }
         else {
-            Flasher::seFlash('Kelas','Gagal','ditambahkan','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Penilaian','Gagal','ditambahkan','danger');
             header('Location: ' . BASEURL .'kelas');
             exit;
         }
     }
 
-    public function tambahMentor(){
-        if ( $this->model('Pendaftaran_model')->tambahDataPenilaianMentor($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Kelas','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/mentor/kelas');
-            exit;
-        }
-        else {
-            Flasher::seFlash('Kelas','Gagal','ditambahkan','danger');// mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/mentor/index');
-            exit;
-        }
-    }
-
+    //hapus penilaian user terhadap kelas
     public function hapus($id){
         if ( $this->model('Mentor_model')->hapusDataMentor($id) > 0) { //memanggil User_model untuk mengolah data
-            Flasher::seFlash('Mentor','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Penilaian','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/index');
             exit;
         }
         else {
-            Flasher::seFlash('Mentor','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Penilaian','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/index');
             exit;
         }

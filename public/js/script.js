@@ -208,7 +208,6 @@ $(function() {
             dataType: 'json',
             success: function (data) {
                 console.log(data);
-                //membersihkan
                 $('#id_materi').val(data.id_materi);
                 $('#urutan_materi').val(data.urutan_materi);
                 $('#judul').val(data.judul);

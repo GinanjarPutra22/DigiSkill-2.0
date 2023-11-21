@@ -28,12 +28,12 @@ class Pendaftaran extends Controller{
 
     public function tambah(){
         if ( $this->model('Pendaftaran_model')->tambahDataPendaftaran($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Kelas','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Anda','Berhasil','Memasuki Kelas','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/dashboard/index');
             exit;
         }
         else {
-            Flasher::seFlash('Kelas','Gagal','ditambahkan','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Anda','Gagal','Memasuki Kelas','danger');// mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'kelas');
             exit;
         }
@@ -41,12 +41,12 @@ class Pendaftaran extends Controller{
 
     public function tambahMentor(){
         if ( $this->model('Pendaftaran_model')->tambahDataPendaftaranMentor($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Kelas','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Anda Sebagai Mentor','Berhasil','Masuk Kelas','success'); // mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/kelas');
             exit;
         }
         else {
-            Flasher::seFlash('Kelas','Gagal','ditambahkan','danger');// mengirimkan parameter untuk dikelolah flasher
+            Flasher::seFlash('Anda Sebagai Mentor','Gagal','Masuk Kelas','danger');// mengirimkan parameter untuk dikelolah flasher
             header('Location: ' . BASEURL .'/mentor/index');
             exit;
         }

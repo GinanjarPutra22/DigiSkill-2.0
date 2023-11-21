@@ -67,6 +67,9 @@ class Auth_model {
             $this->db->execute();
 
             $this->db->commit();
+
+            return $this->db->rowCount();
+
         } catch (PDOException $e) {
             $this->db->rollBack(); // Rollback jika terjadi kesalahan
             die("Error: " . $e->getMessage());
@@ -118,8 +121,6 @@ class Auth_model {
 
             $this->db->execute();
 
-            $id_table1 = $this->db->getLastInsertId();
-
             $query2 = "UPDATE login SET
                         username = :username,
                         password = :password
@@ -127,12 +128,15 @@ class Auth_model {
 
             $this->db->query($query2);
 
-            $this->db->bind('id_profile', $id_table1); 
+            $this->db->bind('id_profile', $data['id_profile']); 
             $this->db->bind('username',$data['username'] ); 
             $this->db->bind('password',password_hash($data['password'], PASSWORD_DEFAULT) ); 
             $this->db->execute();
 
             $this->db->commit();
+
+            return $this->db->rowCount();
+            
         } catch (PDOException $e) {
             $this->db->rollBack(); // Rollback jika terjadi kesalahan
             die("Error: " . $e->getMessage());

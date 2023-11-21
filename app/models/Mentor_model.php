@@ -85,6 +85,8 @@ class Mentor_model{
             $this->db->execute();
 
             $this->db->commit();
+
+            return $this->db->rowCount();
         } catch (PDOException $e) {
             $this->db->rollBack(); // Rollback jika terjadi kesalahan
             die("Error: " . $e->getMessage());
@@ -139,24 +141,22 @@ class Mentor_model{
 
             $this->db->execute();
 
-            $id_table1 = $this->db->getLastInsertId();
-
             $query2 = "UPDATE login SET
                         username = :username,
-                        password = :password,
-                        id_role = :id_role
+                        password = :password
                         WHERE id_profile_mentor = :id_profile_mentor";
 
             $this->db->query($query2);
 
-            $id_role = 2;
-            $this->db->bind('id_profile_mentor', $id_table1); 
-            $this->db->bind('username',$data['username'] ); 
-            $this->db->bind('id_role',$id_role ); 
+            $this->db->bind('id_profile_mentor', $data['id_profile_mentor']); 
+            $this->db->bind('username',$data['username']); 
             $this->db->bind('password',password_hash($data['password'], PASSWORD_DEFAULT) ); 
             $this->db->execute();
 
             $this->db->commit();
+
+            return $this->db->rowCount();
+
         } catch (PDOException $e) {
             $this->db->rollBack(); // Rollback jika terjadi kesalahan
             die("Error: " . $e->getMessage());
@@ -167,7 +167,7 @@ class Mentor_model{
     //menghapus data mentor
     public function hapusDataMentor($id)
     {
-        var_dump($id);die;
+        // var_dump($id);die;
         // $query ="DELETE FROM kelas WHERE id_profile=:id";
         $query ='DELETE FROM mentor WHERE id_profile_mentor =:id';
 

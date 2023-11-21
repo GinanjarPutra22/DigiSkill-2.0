@@ -10,7 +10,8 @@ class Mentor extends Controller{
             $this->data['login'] = $this->model('Auth_model')->getLoginByIdMentor($_SESSION['id_profile_mentor']);
             $this->data['kelas'] = $this->model('Kelas_model')->getKelasByIdMentor($_SESSION['id_profile_mentor']);
         }
-        // var_dump($this->data['kelas']);die;        
+        // var_dump($this->data['kelas']);die;       
+        Flasher::flash(); 
     }
 
     
