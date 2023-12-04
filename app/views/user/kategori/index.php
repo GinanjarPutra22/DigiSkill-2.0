@@ -27,8 +27,7 @@
                 </p>
 
 
-                <div class="d-flex gap-2 align-content-center ">
-                    <!-- Icon Dropdown -->
+                <!-- <div class="d-flex gap-2 align-content-center ">
                     <div class="btn-group">
                         <button type="button" class="btn btn-outline-primary dropdown-toggle" data-bs-toggle="dropdown"
                             aria-expanded="false">
@@ -48,15 +47,13 @@
                             </div>
                         </ul>
                     </div>
-
-                    <!--/ Icon Dropdown -->
                     <div class="input-group input-group-merge">
                         <span class="input-group-text" id="carimentor"><i class="bx bx-search"></i></span>
                         <input type="search" id="form1" class="form-control" placeholder="Cari kelas UI/UX Design..."
                             aria-label="Search" />
                     </div>
                     <button type="submit" class="btn btn-primary  px-3">Cari </button>
-                </div>
+                </div> -->
 
 
             </div>
