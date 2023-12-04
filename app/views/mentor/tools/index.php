@@ -12,7 +12,7 @@
           <p class="mt-n3 fs-5 fw-semibold">Kelas
             <?= $data['kelas']['nama_kelas'] ?>
           </p>
-          
+
           <div class="d-flex mb-3 row gap-5">
             <form action="<?= BASEURL; ?>/mentor/tools" method="post">
               <label for="exampleFormControlInput1" class="form-label">Cari Tools</label>
@@ -77,7 +77,9 @@
                 <?= $tools['nama_tools'] ?><br>
               </td>
               <!-- Preview -->
-              <td><a href="<?= $tools['link_download'] ?>" target="_blank" class="btn btn-info btn-sm">Link Materi</a>
+              <td><a target="_blank" href="<?= $tools['link_download'] ?>" target="_blank"
+                  class="btn btn-outline-primary btn-sm">Link
+                  Tools</a>
               </td>
             </tr>
           <?php endforeach; ?>
