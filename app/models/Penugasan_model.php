@@ -25,10 +25,11 @@ class Penugasan_model{
         return $this->db->resultSet();
     }
 
-    public function getPenugasanByIdKelasUser($id)
+    public function getPenugasanByIdKelasUser($id,$id_user)
     {
-        $this->db->query('SELECT * FROM '. $this->table.' WHERE id_kelas=:id');
+        $this->db->query('SELECT * FROM '. $this->table.' WHERE id_kelas=:id AND id_profile = :id_user');
         $this->db->bind('id',$id);
+        $this->db->bind('id_user',$id_user);
         return $this->db->resultSet();
     }
 
