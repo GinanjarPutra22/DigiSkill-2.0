@@ -69,11 +69,11 @@
 <div class="container mt-5">
     <div class="row mt-5 justify-content-center">
         <div class="col-lg-4 col-md-6 mb-4 rounded ">
-            <div class="card p-3 ">
-                <?php if (empty($data['kelas'])) { ?>
-                    <h1>Data Kosong</h1>
+            <?php if (empty($data['kelas'])) { ?>
+                <h1>Data Kosong</h1>
                 <?php } else {
                     foreach ($data['kelas'] as $kategori): ?>
+                        <div class="card p-3 ">
                         <?php
                         $currentClassId = $kategori['id_kelas']; // Store the value in a variable
                         ?>
@@ -170,9 +170,9 @@
                                 </div>
                             </div>
                         </div>
+                        </div>
                     <?php endforeach;
                 } ?>
-            </div>
         </div>
 
     </div>
