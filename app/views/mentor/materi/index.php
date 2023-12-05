@@ -116,7 +116,10 @@
               </td>
               <!-- Preview Materi -->
               <td class="align-content-center align-self-center ">
-                <a href="<?= $materi['link_materi'] ?>" class="btn btn-info btn-sm">Link Materi</a>
+                <a href="<?= $materi['link_materi'] ?>" target="_blank" class="btn btn-outline-primary btn-sm">Link
+                  Materi</a>
+
+
               </td>
               <!-- Urutan -->
               <td>
