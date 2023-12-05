@@ -83,8 +83,8 @@ class Kelas_model{
         $this->db->query('SELECT *, COUNT(data_user.id_kelas) AS total_data_user,
                             (SELECT COUNT(materi.id_kelas) FROM materi WHERE materi.id_kelas = kelas.id_kelas) AS total_materi
                              FROM '. $this->table . ' 
-                                INNER JOIN data_user ON kelas.id_kelas = data_user.id_kelas
-                                INNER JOIN kategori ON kategori.id_kategori = kelas.id_kategori
+                                LEFT JOIN data_user ON kelas.id_kelas = data_user.id_kelas
+                                LEFT JOIN kategori ON kategori.id_kategori = kelas.id_kategori
                                 WHERE kelas.id_kategori=:id
                                 GROUP BY kelas.id_kelas, kelas.nama_kelas');
         $this->db->bind('id',$id);
