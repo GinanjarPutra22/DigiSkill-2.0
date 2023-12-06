@@ -52,7 +52,7 @@
                       <th>Profil</th>
                       <th>Nama</th>
                       <th>Kategori Kelas</th>
-                      <th>Judul Kelas</th>
+                      <th class="text-start">Judul Kelas</th>
                       <th>Waktu Bergabung</th>
                     </tr>
                   </thead>
@@ -81,9 +81,9 @@
                             <!-- Nama -->
                             <td><?= $usr['nama_user']?></td>
                             <!-- nama kategori -->
-                            <td><?= $usr['nama_kategori']?></td>
+                            <td ><?= $usr['nama_kategori']?></td>
                             <!-- judul Kelas -->
-                            <td><?= $usr['nama_kelas']?></td>
+                            <td class="text-start"><?= $usr['nama_kelas']?></td>
                             <!-- Waktu Gabung -->
                             <td><?= $usr['tgl_pendaftaran']?></td>
                         </tr>

@@ -1,11 +1,10 @@
 <?php
 
-class Kelas extends Controller{
+class Kelas extends Controller {
     protected $data = [];
 
-    public function __construct()
-    {
-        if (isset ($_SESSION['id_profile'])) {
+    public function __construct() {
+        if(isset($_SESSION['id_profile'])) {
             $this->data['login'] = $this->model('Auth_model')->getLoginById($_SESSION['id_profile']);
         }
         Flasher::flash();
@@ -27,17 +26,16 @@ class Kelas extends Controller{
     // }
 
     //user view detail kelas 
-    public function detail($id)
-    {
+    public function detail($id) {
         // var_dump($id);die;
         //judul,navbarrr,session login
         $data['judul'] = "Kelas";
-        if (isset ($_SESSION['id_profile'])) {
+        if(isset($_SESSION['id_profile'])) {
             $data['login'] = $this->data['login'];
             //melakukan pengecekan apakah user sudah masuk kelas atau belum
             $data['user_daftar'] = $this->model('Pendaftaran_model')->getDataUserById($_SESSION['id_profile']);
             // var_dump($data['user_daftar']);die;
-        }else{
+        } else {
             $data['user_daftar']['id_kelas'] = [];
         }
         $data['kategori'] = $this->model('Kategori_model')->getAllKategori();
@@ -68,62 +66,58 @@ class Kelas extends Controller{
 
         // var_dump($data['tools']);die;
         //untuk modal
-        if (isset ($_SESSION['id_profile'])) {
+        if(isset($_SESSION['id_profile'])) {
             $data['data_user'] = $this->model('Pendaftaran_model')->getPendaftarById($_SESSION['id_profile']);
         }
-        
+
         // view yang ditampilkan
-        $this->view('componens/header',$data);
-        $this->view('user/detail_kelas/index',$data);
+        $this->view('componens/header', $data);
+        $this->view('user/detail_kelas/index', $data);
         // $this->view('componens/footer',$data);
     }
 
     // menambahkan data kelas
-    public function tambah(){
-        if ( $this->model('Kelas_model')->tambahDataKelas($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Kelas','Berhasil','ditambahkan','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_kelas');
+    public function tambah() {
+        if($this->model('Kelas_model')->tambahDataKelas($_POST) > 0) { //memanggil kelas_model untuk mengolah data
+            Flasher::seFlash('Kelas', 'Berhasil', 'ditambahkan', 'success'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: '.BASEURL.'/admin/data_kelas');
             exit;
-        }
-        else {
-            Flasher::seFlash('Kelas','Gagal','ditambahkan','danger');// mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_kelas');
+        } else {
+            Flasher::seFlash('Kelas', 'Gagal', 'ditambahkan cek Kode Kelas atau form lainnya', 'danger'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: '.BASEURL.'/admin/data_kelas');
             exit;
         }
     }
 
     // menghapus data kelas
-    public function hapus($id){
-        if ( $this->model('Kelas_model')->hapusDataKelas($id) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Kelas','Berhasil','dihapus','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_kelas/');
+    public function hapus($id) {
+        if($this->model('Kelas_model')->hapusDataKelas($id) > 0) { //memanggil kelas_model untuk mengolah data
+            Flasher::seFlash('Kelas', 'Berhasil', 'dihapus', 'success'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: '.BASEURL.'/admin/data_kelas/');
             exit;
-        }
-        else {
-            Flasher::seFlash('Kelas','Gagal','dihapus','danger');// mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_kelas/');
+        } else {
+            Flasher::seFlash('Kelas', 'Gagal', 'dihapus', 'danger'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: '.BASEURL.'/admin/data_kelas/');
             exit;
         }
     }
 
     // mengambil data kelas sesuai dengan ID
-    public function getUbah()
-    {
-        echo json_encode( $this->model('Kelas_model')->getKelasById($_POST['id']));
+    public function getUbah() {
+        echo json_encode($this->model('Kelas_model')->getKelasById($_POST['id']));
     }
 
     // mengubah data kelas sesuai id yang dipilih
-    public function ubah(){
-        if ( $this->model('Kelas_model')->ubahDataKelas($_POST) > 0) { //memanggil kelas_model untuk mengolah data
-            Flasher::seFlash('Data Kelas','Berhasil','diubah','success'); // mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_Data ');
+    public function ubah() {
+        if($this->model('Kelas_model')->ubahDataKelas($_POST) > 0) { //memanggil kelas_model untuk mengolah data
+            Flasher::seFlash('Data Kelas', 'Berhasil', 'diubah', 'success'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: '.BASEURL.'/admin/data_Data ');
             exit;
-        }
-        else {
-            Flasher::seFlash('Data Kelas','Gagal','diubah','danger');// mengirimkan parameter untuk dikelolah flasher
-            header('Location: ' . BASEURL .'/admin/data_kelas');
+        } else {
+            Flasher::seFlash('Data Kelas', 'Gagal', 'diubah', 'danger'); // mengirimkan parameter untuk dikelolah flasher
+            header('Location: '.BASEURL.'/admin/data_kelas');
             exit;
         }
     }
-    
+
 }

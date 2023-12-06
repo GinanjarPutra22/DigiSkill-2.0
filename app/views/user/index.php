@@ -135,7 +135,7 @@
     <!-- END VALUE 2 -->
 
     <!-- Start Card Produk -->
-    <div class="container mx-4 mt-5" id="kelas">
+    <div class="container mx-auto mt-5" id="kelas">
         <div class="row text-center mx-4 mx-md-5 text-center">
             <p class="fw-bold fs-1">Program Kelas Terbaik <span class="text-primary"> DigiSkill?</span></p>
             <p class="fs-5">
@@ -144,7 +144,7 @@
             </p>
         </div>
 
-        <div class="row mt-5 justify-content-center">
+        <div class="row mt-5 justify-content-center ">
             <?php foreach ($data['terbaik'] as $jml): ?>
                 <?php
                 $currentClassId = $jml['id_kelas']; // Store the value in a variable
@@ -153,7 +153,7 @@
                     <div class="card p-3 ">
                         <div class="img-box">
                             <img src="<?= BASEURL; ?>/public/img/assets/kelas/<?= $jml['thumbnail']; ?>" alt=""
-                                class="img-fluid figure-img rounded h-25 w" />
+                                class="img-fluid figure-img rounded  w-100" />
                         </div>
                         <div class="d-flex justify-content-between mt-2">
                             <p class="badge bg-label-primary fw-semibold">

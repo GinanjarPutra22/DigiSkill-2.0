@@ -41,9 +41,9 @@ class Pendaftaran_model{
     public function getJumlahPendaftarByKategori()
     {
         $query = "SELECT *, count(data_user.id_kelas) as total 
-                    FROM data_user 
-                    LEFT JOIN kelas ON kelas.id_kelas = data_user.id_kelas 
-                    LEFT JOIN kategori ON kelas.id_kategori = kategori.id_kategori 
+                    FROM kategori 
+                    LEFT JOIN kelas ON kelas.id_kategori = kategori.id_kategori 
+                    LEFT JOIN data_user ON kelas.id_kelas = data_user.id_kelas 
                     GROUP By kategori.id_kategori";
         $this->db->query($query);
         return $this->db->resultSet();
